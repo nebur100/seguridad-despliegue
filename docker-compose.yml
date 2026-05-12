@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  [cite_start]db: [cite: 62]
+    [cite_start]image: mariadb:latest [cite: 63]
+    environment:
+      [cite_start]MARIADB_ROOT_PASSWORD: ${ROOT_PASSWORD} [cite: 65]
+    deploy:
+      resources:
+        limits:
+          [cite_start]memory: 512M [cite: 66]
+  [cite_start]web: [cite: 67]
+    [cite_start]build: . [cite: 68]
+    ports:
+      - [cite_start]"8071:80" [cite: 69]
+    environment:
+      ROOT_PASSWORD: ${ROOT_PASSWORD}
+    security_opt:
+      - [cite_start]no-new-privileges:true [cite: 70]
