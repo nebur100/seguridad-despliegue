@@ -1,13 +1,15 @@
 <?php
 $host = 'db';
 $user = 'root';
-$pass = getenv('ROOT_PASSWORD'); // Leemos la contraseña de Jenkins [cite: 51]
+$pass = getenv('MARIADB_ROOT_PASSWORD'); // Aquí está el truco
+$db   = 'test_db';
 
 $conn = new mysqli($host, $user, $pass);
 
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
-echo "<h1>Conexión exitosa a la base de datos MariaDB</h1>";
-echo "<p>Desplegado por: amorrie071</p>"; // Tu usuario [cite: 23]
+
+echo "<h1>¡Despliegue automático de Rubén Moreno Riera funcionando al 100%!</h1>";
+echo "<p>Conexión a la base de datos establecida con éxito.</p>";
 ?>
